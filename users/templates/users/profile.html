@@ -59,9 +59,7 @@
                                     placeholder="Введите ваше имя пользователя"
                                     value="{{ form.username.value }}" 
                                     required>
-                                    {% if form.email.errors %}
-                                <div class="alert alert-danger alert-dismissible fade show">{{form.email.errors}}</div>
-                                {% endif %}
+                                    
                                     {% if form.username.errors %}
                                     <div class="alert alert-danger alert-dismissible fade show">{{form.username.errors}}</div>
                                     {% endif %}
@@ -73,6 +71,9 @@
                                     placeholder="Введите ваш email *youremail@example.com"
                                     value="{{ form.email.value}}"
                                     required>
+                                    {% if form.email.errors %}
+                                <div class="alert alert-danger alert-dismissible fade show">{{form.email.errors}}</div>
+                                {% endif %}
                             </div>
                         </div>
                         <button type="submit" class="btn btn-dark">Сохранить</button>
@@ -85,7 +86,7 @@
                     <h3 class="text-center mb-4">Корзина</h3>
                     <div class="container" id="cart-items-container">
                         <!-- Разметка корзины -->
-                   
+                        {% include "carts/includes/included_cart.html" %}
                         <!-- Закончилась разметка корзины -->
                     </div>
                     <a class="btn btn-dark" href="../orders/create_order.html">
